@@ -1,5 +1,4 @@
 package Main;
-
 import data.IronSwordInterface;
 import data.SandBlock;
 import utils.MapCoordinates;
