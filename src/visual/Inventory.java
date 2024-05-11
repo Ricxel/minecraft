@@ -17,9 +17,12 @@ public class Inventory {
         comparator = new AlphabeticalBlockComparator();
         sorted = false;
     }
-    public void display_inventory(){
+    public String display_inventory(){
+        StringBuilder ris = new StringBuilder();
         if(!this.sorted)l.sort(comparator);
-        for (Block block : l) block.display_in_inventory();
+        for (Block block : l) ris.append(block.toString());
+        return ris.toString();
+
     }
     public void add_block(Block b){
         l.add(b);

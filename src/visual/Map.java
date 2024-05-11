@@ -8,8 +8,8 @@ import utils.WrongCoordinatesException;
 import java.util.Random;
 
 public class Map {
-    private static final int DIMENSION_COLUMNS = 10;
-    private static final int DIMENSION_ROWS = 5;
+    public static final int DIMENSION_COLUMNS = 10;
+    public static final int DIMENSION_ROWS = 5;
 
     private Block[][] content;
     private BlockFactory bf;
@@ -48,14 +48,8 @@ public class Map {
         for (int i = 0 ; i < RANDOM_BLOCKS_TO_ADD; i++){
             int row = rand.nextInt(DIMENSION_ROWS);
             int col = rand.nextInt(DIMENSION_COLUMNS);
-
-            //randomizzare sand/Iron
-            int isSand = rand.nextInt(2);
-            //se esce 1 allora sand, altrimenti ferro
-            if(isSand == 1){
-                b = new SandBlock();
-            }
-            else b = new RawIronBlock();
+            BlockFactory bf = new BlockFactory();
+            b = bf.random_block();
             // inserite b a row-col
             this.insert_block_at_coords(b, new MapCoordinates(row,col), true);
         }
