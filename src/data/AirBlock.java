@@ -1,5 +1,7 @@
 package data;
 
+import javafx.scene.paint.Color;
+
 public class AirBlock extends AbstractBlock {
     private char content;
     private boolean falls_with_gravity;
@@ -51,6 +53,12 @@ public class AirBlock extends AbstractBlock {
     private void set_fall_through(){
         this.fall_through = this.isDefault();
     }
+
+    @Override
+    public Color getColore() {
+        return colore;
+    }
+
     public char display(){
         return this.content;
     }

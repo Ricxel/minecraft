@@ -1,5 +1,7 @@
-package data;
+package visual;
 
+import data.Block;
+import data.BlockFactory;
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import utils.MapCoordinates;

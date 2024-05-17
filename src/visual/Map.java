@@ -9,7 +9,8 @@ import java.util.Random;
 
 public class Map {
     public static final int DIMENSION_COLUMNS = 10;
-    public static final int DIMENSION_ROWS = 5;
+    public static final int DIMENSION_ROWS = 10;
+    public static final int RANDOM_BLOCKS_TO_ADD = 30;
 
     private Block[][] content;
     private BlockFactory bf;
@@ -40,16 +41,22 @@ public class Map {
                 content[i][j] = new AirBlock();
             }
         }
-        this.randomize(20);
+        if(random) this.randomize();
+        this.addRiver();
+        this.addRiver();
+
     }
-    private void randomize(final int RANDOM_BLOCKS_TO_ADD) throws WrongCoordinatesException {
+    private void randomize() throws WrongCoordinatesException {
         Random rand = new Random();
         Block b;
         for (int i = 0 ; i < RANDOM_BLOCKS_TO_ADD; i++){
-            int row = rand.nextInt(DIMENSION_ROWS);
-            int col = rand.nextInt(DIMENSION_COLUMNS);
+            int row,col;
+            do {
+                col = rand.nextInt(DIMENSION_COLUMNS);
+                row = rand.nextInt(DIMENSION_ROWS);
+            }while(!(content[row][col] instanceof AirBlock));
             BlockFactory bf = new BlockFactory();
-            b = bf.random_block();
+            b = bf.sandBlock();
             // inserite b a row-col
             this.insert_block_at_coords(b, new MapCoordinates(row,col), true);
         }
@@ -178,5 +185,8 @@ public class Map {
         if(is_pickable(r,c))
             return content[r][c];
         else return new NullBlock();
+    }
+    public Block get_cell(MapCoordinates coords){
+        return content[coords.get_row()][coords.get_col()];
     }
 }

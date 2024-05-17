@@ -1,6 +1,9 @@
 package data;
 
+import javafx.scene.paint.Color;
+
 public class SandBlock extends AbstractBlock implements SmeltableBlock,BreakWhenFallOnATorchIntefarce{
+    public Color colore = Color.YELLOW;
     public SandBlock(){
         super();
         this.falls_with_gravity = true;
@@ -10,5 +13,10 @@ public class SandBlock extends AbstractBlock implements SmeltableBlock,BreakWhen
     }
     public Block smelt(){
         return new GlassBlock();
+    }
+
+    @Override
+    public Color getColore() {
+        return colore;
     }
 }

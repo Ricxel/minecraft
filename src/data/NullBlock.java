@@ -1,5 +1,7 @@
 package data;
 
+import javafx.scene.paint.Color;
+
 public class NullBlock extends AbstractSolidBlock implements SmeltableBlock{
     public NullBlock(){
         super();
@@ -9,5 +11,10 @@ public class NullBlock extends AbstractSolidBlock implements SmeltableBlock{
     @Override
     public Block smelt() {
         return new NullBlock();
+    }
+
+    @Override
+    public Color getColore() {
+        return null;
     }
 }

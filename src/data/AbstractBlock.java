@@ -1,5 +1,10 @@
 package data;
+
+import javafx.scene.paint.Color;
+
 public abstract class AbstractBlock implements Block{
+    protected Color colore = Color.CYAN;
+
     protected char content;
     protected int number;
     protected boolean falls_with_gravity;

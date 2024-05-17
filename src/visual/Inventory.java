@@ -53,4 +53,8 @@ public class Inventory {
     public void toggle_sorting(){
         this.sorted = !this.sorted;
     }
+
+    public Iterator<Block> get_iterator() {
+        return l.iterator();
+    }
 }

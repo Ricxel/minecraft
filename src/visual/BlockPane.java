@@ -1,5 +1,6 @@
 package visual;
 
+import data.AbstractBlock;
 import data.Block;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -28,7 +29,7 @@ public class BlockPane extends StackPane {
     private void initialize(){
         Text t = new Text("" + b.display());
         t.setFont(new Font(FONT_NAME, FONT_SIZE));
-        rec = new Rectangle(DIM_SQUARE, DIM_SQUARE, Color.RED);
+        rec = new Rectangle(DIM_SQUARE, DIM_SQUARE, b.getColore());
         this.getChildren().add(rec);
         this.getChildren().add(t);
     }
